@@ -16,6 +16,9 @@ let margin = 0.05;
 let BOX_PLOT_COLS_1 = ['BSF_1', 'BSF_10', 'BSF_11', 'BSF_12', 'BSF_13', 'BSF_14', 'BSF_15', 'BSF_16', 'BSF_17', 'BSF_18', 'BSF_19', 'BSF_2', 'BSF_20', 'BSF_21', 'BSF_3', 'BSF_4', 'BSF_5', 'BSF_6', 'BSF_7', 'BSF_8', 'BSF_9']
 let BOX_PLOT_COLS_2 = ['PCF_1', 'PCF_10', 'PCF_11', 'PCF_12', 'PCF_13', 'PCF_14', 'PCF_15', 'PCF_16', 'PCF_17', 'PCF_18', 'PCF_19', 'PCF_2', 'PCF_20', 'PCF_21', 'PCF_22','PCF_23', 'PCF_24', 'PCF_25', 'PCF_26', 'PCF_27', 'PCF_3', 'PCF_4', 'PCF_5', 'PCF_6', 'PCF_7', 'PCF_8', 'PCF_9']
 
+
+//need to manually change conditions in
+//xs table (index.html) and scatter plot app (app.js)
 let CONDITION_1 = 'BSF'
 let CONDITION_2 = 'PCF'
 

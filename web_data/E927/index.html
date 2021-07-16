@@ -307,7 +307,7 @@
 
 
 
-      console.log(files[1]);
+      //console.log(files[1]);
       //box_plot_cols_1 = ['iBAQ SPORO_1','iBAQ SPORO_2','iBAQ SPORO_3']
       //box_plot_cols_2 = ['iBAQ WALL_1','iBAQ WALL_2','iBAQ WALL_3']
       var box_plot_data_1 = {};
@@ -345,8 +345,8 @@
       }
 
       //console.log(box_plot_data);
-      console.log('box_plot_data_1[1]',box_plot_data_1[1]);
-      console.log('box_plot_data_2[1]',box_plot_data_2[1]);
+      //console.log('box_plot_data_1[1]',box_plot_data_1[1]);
+      //console.log('box_plot_data_2[1]',box_plot_data_2[1]);
 
       //var box_plot_name_to_id = swap(box_plot_id_to_name);
 
@@ -361,7 +361,7 @@
       
       //use all the columns in the file
       var columns = files[0].columns.slice(0,8);
-      console.log('File Columns', columns);
+      //console.log('File Columns', columns);
       //add data to the table
       tabulate(files[0], columns, '#table');
 
@@ -422,12 +422,12 @@
       $('#seach_visible').on("click", function(e) {
         //console.log(e);
         //var select = table.rows( { search: 'applied' } ).select();
-        console.log('button');
-        console.log(table);
+        //console.log('button');
+        //console.log(table);
         var selectedRows = table.rows({ search: 'applied' }).data()
         var selectedIDs = [];
         for (i = 0; i < selectedRows.length; i++){selectedIDs.push(selectedRows[i][0])}
-          console.log(selectedIDs);
+          //console.log(selectedIDs);
 
         for (i = 0; i < selectedIDs.length; i++){
           d3.selectAll("circle[id*='" + selectedIDs[i] + "']")
@@ -460,7 +460,7 @@
           //console.log('hi');
           var content = document.getElementById("textAreaIDs").value;
           content =  removeNewlines(content).split(" ") 
-          console.log( content  );
+          //console.log( content  );
 
           //select all the rows with the submitted protein ids
           var selectedRows = table.rows( function ( idx, data, node ) {
@@ -468,12 +468,12 @@
             //console.log('content.indexOf(data[1])',content.indexOf(data[1]))
             return content.indexOf(data[1]) > -1 ? true : false;
           } ).data();
-          console.log(selectedRows);
+          //console.log(selectedRows);
 
           //select the unique protein ids for each rro
           var selectedIDs = [];
           for (i = 0; i < selectedRows.length; i++){selectedIDs.push(selectedRows[i][0])}
-          console.log(selectedIDs);
+          //console.log(selectedIDs);
           
           //serch the ids in the table
           table.columns(0).search(selectedIDs.join('|'), true, false).draw();
@@ -494,7 +494,7 @@
 
       $('#my-form').on("reset", function(e) {
           //e.preventDefault();
-          console.log('reset');
+          //console.log('reset');
           d3.selectAll("circle")
                 .style("stroke", '')
                 .style("opacity", 0.5)
@@ -521,7 +521,7 @@
 
         
         var selector = '#'+gene_acc;
-        console.log('selector', selector);
+        //console.log('selector', selector);
         d3.selectAll(selector).style("stroke",COLOR_SELECTION_CIRCLE).attr("stroke-width",'5').style("opacity", 1).raise();
         //console.log(d3.select(selector));
         //var id = table.row( this ).id();
@@ -529,7 +529,7 @@
 
         //remove front and back tag from id
         var gene_acc_int = gene_acc.slice(2, -2);
-        console.log('gene_acc_int',gene_acc_int);
+        //console.log('gene_acc_int',gene_acc_int);
         //var temp_html = '<div class="raw"> <div class="col-md-2"> <div>'
         //$(".c3-title").html(data[1] +' '+ data[5]);
 
@@ -544,13 +544,31 @@
         //label.insert('tspan').text('derpa').attr('dy', -10).attr('x', 44)
 
         //load box plot
+
+        var x1_array=['x1'];
+        var x2_array=['x2'];
+
+        for (var i = 1; i < BOX_PLOT_COLS_1.length; i++) {
+          x1_array.push(i);}
+        
+        for (var i = BOX_PLOT_COLS_1.length; i < BOX_PLOT_COLS_1.length+BOX_PLOT_COLS_2.length; i++) {
+          x2_array.push(i);}
+        
+        //console.log(x1_array);
+        //console.log(x2_array);
+
+
+
         box_plot_chart.load({
           columns: [
             box_plot_data_1[gene_acc_int],
             box_plot_data_2[gene_acc_int],
+            x1_array,
+            x2_array
 
-            ['x1',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-            ['x2',21,22,23,24,25,26,27,27,28,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47]
+
+            //['x1',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+            //['x2',21,22,23,24,25,26,27,27,28,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47]
           ],
 
           xs: {
@@ -582,7 +600,7 @@
           var prot_id = this.innerText;
           var selector = box_plot_name_to_id[prot_id];
           var selector = 'aa'+selector+'aa'
-          console.log('title selector',selector)
+          //console.log('title selector',selector)
           d3.selectAll('#'+selector).style("stroke",COLOR_SELECTION_CIRCLE).attr("stroke-width",'5').style("opacity", 1).raise();
           d3.selectAll("tr[id*='" + selector + "']")
                 .style("background-color", COLOR_SELECTION_TABLE)

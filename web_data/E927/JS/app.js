@@ -40,7 +40,7 @@ const svgToPdfExample = (svg) => {
           type: 'application/pdf'
         });
         var blobUrl = URL.createObjectURL(pdfBlob);
-        console.log('blobUrl',blobUrl);
+        //console.log('blobUrl',blobUrl);
         window.open(blobUrl);
       },
       // readable streaaam stub iplementation
@@ -252,15 +252,15 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
     //tring to add more space to fit the circles 
     //at the boders -- needs rethinking -- 
-    console.log('before: xExtent', xExtent, 'yExtent', yExtent);
+    //console.log('before: xExtent', xExtent, 'yExtent', yExtent);
     //var XextentMax = Math.max.apply(null, xExtent.map(Math.abs));
     //var YextentMax = Math.max.apply(null, yExtent.map(Math.abs));
-    console.log('parse x');
+    //console.log('parse x');
     xExtent = add_margin(xExtent);
-    console.log('parse y');
+    //console.log('parse y');
     yExtent = add_margin(yExtent);
 
-    console.log('after: xExtent', xExtent, 'yExtent', yExtent);
+    //console.log('after: xExtent', xExtent, 'yExtent', yExtent);
 
     x.domain(xExtent).nice();
     y.domain(yExtent).nice();
@@ -365,19 +365,36 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
             //$(".c3-title").html(box_plot_id_to_name[d['Gene_acc']] +' '+box_plot_id_to_desc[d['Gene_acc']]);
             $('#prot_id').html(box_plot_id_to_name[d['Gene_acc']]);
             $('#prot_name').html(box_plot_id_to_desc[d['Gene_acc']]);
+
+
+            var x1_array=['x1'];
+            var x2_array=['x2'];
+    
+            for (var i = 1; i < BOX_PLOT_COLS_1.length; i++) {
+              x1_array.push(i);}
+            
+            for (var i = BOX_PLOT_COLS_1.length; i < BOX_PLOT_COLS_1.length+BOX_PLOT_COLS_2.length; i++) {
+              x2_array.push(i);}
+
+            
+
+
             //load box plot
             box_plot_chart.load({
                 columns: [
                 box_plot_data_1[d['Gene_acc']],
                 box_plot_data_2[d['Gene_acc']],
-
-                ['x1',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-                ['x2',21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47]
-                ],
-                
-                xs: {
-                    'BSF': 'x1',
-                    'PCF': 'x2',
+                x1_array,
+                x2_array
+    
+    
+                //['x1',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+                //['x2',21,22,23,24,25,26,27,27,28,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47]
+              ],
+    
+              xs: {
+                'BSF': 'x1',
+                'PCF': 'x2',
                 },
 
 
@@ -423,7 +440,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
             var selection = d3.select("#" + 'gene-label-' +unique_id+ d['Gene_acc'])
             //selection.attr('visibility','visible');
             if (selection.empty()) {
-                console.log(selection);
+                //console.log(selection);
                 //this part would add the gene name to the circle
                 //buth needs to respond to brush as well... another time
                 //for the moment get removed after brushing
@@ -477,7 +494,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
                 
 
                 function dragged(event, d) {
-                    console.log('im dragging');
+                    //console.log('im dragging');
                 }
                 
                 drag_this('#gene-label-' +unique_id+ d['Gene_acc'], "#plot_row");
@@ -581,7 +598,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
                 }
             });
 
-            console.log('selected',selected);
+            //console.log('selected',selected);
             d3.selectAll("text[id*='" + 'gene-label-' +unique_id + "']").attr('visibility','hidden');
 
             //use a regex to find all the nodes in the datatable
