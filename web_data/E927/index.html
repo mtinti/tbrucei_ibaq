@@ -533,8 +533,13 @@
         //var temp_html = '<div class="raw"> <div class="col-md-2"> <div>'
         //$(".c3-title").html(data[1] +' '+ data[5]);
 
-        $('#prot_id').html(data[1]);
-        $('#prot_name').html(data[5]);
+        //$('#prot_id').html(data[1]);
+        //$('#prot_name').html(data[5]);
+        //console.log('data',data);
+        //console.log('gene_acc',gene_acc);
+
+        $('#prot_id').html(box_plot_id_to_name[gene_acc_int]);
+        $('#prot_name').html(box_plot_id_to_desc[gene_acc_int]);
 
 
         //var label = d3.select('text.c3-title');

@@ -365,7 +365,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
             //$(".c3-title").html(box_plot_id_to_name[d['Gene_acc']] +' '+box_plot_id_to_desc[d['Gene_acc']]);
             $('#prot_id').html(box_plot_id_to_name[d['Gene_acc']]);
             $('#prot_name').html(box_plot_id_to_desc[d['Gene_acc']]);
-
+            //console.log(d['Gene_acc']);
 
             var x1_array=['x1'];
             var x2_array=['x2'];
