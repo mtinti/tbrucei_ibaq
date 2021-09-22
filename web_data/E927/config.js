@@ -9,7 +9,7 @@ let FLIP_Y2=false;
 let PLOT_WIDTH=550;
 let PLOT_HEIGHT=400;
 
-let PROJECT_TITLE='iBAQ tBrucei';
+let PROJECT_TITLE='Absolute Protein Quantification TREU927';
 
 let margin = 0.05;
 
