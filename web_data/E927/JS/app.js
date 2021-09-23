@@ -188,7 +188,7 @@ function moveRow(row, table) {
 //d3 read everithing as text, parseFloat is used to make sure to 
 //pass numbers to the plot
 function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_col, intable, filp_Y, 
-    box_plot_data_1, box_plot_data_2, box_plot_id_to_name, box_plot_id_to_desc) {
+    box_plot_data_1, box_plot_data_2, box_plot_id_to_name, box_plot_id_to_desc, x_label, y_label, add_margin_value) {
     //data: out of d3.csv/tsv 
     //selection: id of a svg (<svg id="plot1"></svg>) placeholder
     //unique_id: a tag to isolate multiple plots
@@ -213,7 +213,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
 
     let xAxis = d3.axisBottom(x).ticks(10);
-    let yAxis = d3.axisLeft(y).ticks(10);
+    let yAxis = d3.axisLeft(y).ticks(10).tickFormat(d3.format(".1S"));
 
     let brush = d3.brush().extent([
         [0, 0],
@@ -241,7 +241,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
         .attr("x", 0)
         .attr("y", 0);
 
-
+        
     var xExtent = d3.extent(data, function (d) {
         return parseFloat(d[x_col]);
     });
@@ -256,9 +256,12 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
     //var XextentMax = Math.max.apply(null, xExtent.map(Math.abs));
     //var YextentMax = Math.max.apply(null, yExtent.map(Math.abs));
     //console.log('parse x');
-    xExtent = add_margin(xExtent);
+    
+    xExtent = add_margin(xExtent, add_margin_value);
+    
     //console.log('parse y');
-    yExtent = add_margin(yExtent);
+    
+    yExtent = add_margin(yExtent, add_margin_value);
 
     //console.log('after: xExtent', xExtent, 'yExtent', yExtent);
 
@@ -543,7 +546,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
         .style("text-anchor", "end")
         .attr("x", width)
         .attr("y", height + 40)
-        .text(x_col);
+        .text(x_label);
     
     
 
@@ -554,10 +557,10 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
     svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", -50)
+        .attr("y", -60)
         .attr("dy", "1em")
         .style("text-anchor", "end")
-        .text(y_col);
+        .text(y_label);
 
 
 
