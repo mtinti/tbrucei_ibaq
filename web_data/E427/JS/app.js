@@ -213,7 +213,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
 
     let xAxis = d3.axisBottom(x).ticks(10);
-    let yAxis = d3.axisLeft(y).ticks(10).tickFormat(d3.format(".1S"));
+    let yAxis = d3.axisLeft(y).ticks(10)//.tickFormat(d3.format(".1S"));
 
     let brush = d3.brush().extent([
         [0, 0],
