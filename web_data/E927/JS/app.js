@@ -376,10 +376,10 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
             var x1_array=['x1'];
             var x2_array=['x2'];
     
-            for (var i = 1; i < BOX_PLOT_COLS_1.length; i++) {
+            for (var i = 1; i < BOX_PLOT_COLS_1.length+1; i++) {
               x1_array.push(i);}
             
-            for (var i = BOX_PLOT_COLS_1.length; i < BOX_PLOT_COLS_1.length+BOX_PLOT_COLS_2.length; i++) {
+            for (var i = BOX_PLOT_COLS_1.length+1; i < BOX_PLOT_COLS_1.length+BOX_PLOT_COLS_2.length; i++) {
               x2_array.push(i);}
 
             
@@ -632,7 +632,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
                 return x(parseFloat(d[x_col]))+add_border_x;
             })
             .attr("cy", function (d) {
-                return y(parseFloat(d[y_col]))+add_border_y;
+                return y(parseFloat(d[y_col]))-add_border_y;
             });
     }
 }

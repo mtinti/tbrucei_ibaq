@@ -116,14 +116,14 @@
         <div id="bar_chart_title">
 
           <div class="row ">
-            <div  class="col-md-6">
+            <div  class="col-md-8">
               <div id="prot_id">
 
               </div>
             </div>
 
 
-            <div class="col-md-6">
+            <div class="col-md-4">
               <button id="save-bar" type="submit" class="btn btn-primary" >Download Plot</button>
             </div>
 
@@ -556,14 +556,18 @@
         var x1_array=['x1'];
         var x2_array=['x2'];
 
-        for (var i = 1; i < BOX_PLOT_COLS_1.length; i++) {
+        for (var i = 1; i < BOX_PLOT_COLS_1.length+1; i++) {
+          //console.log(i);
           x1_array.push(i);}
         
-        for (var i = BOX_PLOT_COLS_1.length; i < BOX_PLOT_COLS_1.length+BOX_PLOT_COLS_2.length; i++) {
+        for (var i = BOX_PLOT_COLS_1.length+1; i < BOX_PLOT_COLS_1.length+BOX_PLOT_COLS_2.length; i++) {
+          //console.log(i);
           x2_array.push(i);}
         
         //console.log(x1_array);
         //console.log(x2_array);
+        //console.log(box_plot_data_1[gene_acc_int])
+        //console.log(box_plot_data_2[gene_acc_int])
 
 
 
