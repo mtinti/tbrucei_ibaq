@@ -12,6 +12,11 @@ zenodo _place_holder_
     School of Life Sciences, University of Dundee
 
 ## Description
-	The repo contans the code to process the data and the code 
-	for the web application
+	The repo contains the code to process the data:
+	- analysis_427.ipynb
+	- analysis_927.ipynb
+		
+	and the code to run the web application:
+	- web_data\E427
+	- web_data\E927
 
