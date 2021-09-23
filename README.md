@@ -1,5 +1,4 @@
 ![Alt text](ANTI-INFECTIVES-RGB_200pc.png?raw=true "Logo")
-# TriTrypML
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mtinti/tbrucei_ibaq/main)
 
