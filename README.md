@@ -11,3 +11,7 @@ zenodo _place_holder_
     Wellcome Centre for Anti-Infectives Research
     School of Life Sciences, University of Dundee
 
+## Description
+	The repo contans the code to process the data and the code 
+	for the web application
+
