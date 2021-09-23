@@ -124,7 +124,7 @@
 
 
             <div class="col-md-6">
-              <button id="save-bar" type="submit" class="btn btn-primary" >Download Bar Plot</button>
+              <button id="save-bar" type="submit" class="btn btn-primary" >Download Plot</button>
             </div>
 
           </div>
@@ -508,11 +508,11 @@
       //add the plots
       scaterPlot(files[0], "plot1", PLOT_WIDTH, PLOT_HEIGHT, "plot_a", X1, Y1, table, 
       FLIP_Y1, box_plot_data_1, box_plot_data_2, box_plot_id_to_name, box_plot_id_to_desc,
-      X_LABEL_SCATTER1,Y_LABEL_SCATTER1, _margin_1);
+      X_LABEL_SCATTER1,Y_LABEL_SCATTER1, _margin_1, _border_1_x, _border_1_y);
       
       scaterPlot(files[0], "plot2", PLOT_WIDTH, PLOT_HEIGHT, "plot_b", X2, Y2, table, 
       FLIP_Y2, box_plot_data_1, box_plot_data_2, box_plot_id_to_name, box_plot_id_to_desc,
-      X_LABEL_SCATTER2, Y_LABEL_SCATTER2, _margin_2);
+      X_LABEL_SCATTER2, Y_LABEL_SCATTER2, _margin_2, _border_2_x, _border_2_y);
       
       //add the listner to the table rows
       $('#table tbody').on('mouseover', 'tr', function () {

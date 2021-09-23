@@ -188,7 +188,8 @@ function moveRow(row, table) {
 //d3 read everithing as text, parseFloat is used to make sure to 
 //pass numbers to the plot
 function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_col, intable, filp_Y, 
-    box_plot_data_1, box_plot_data_2, box_plot_id_to_name, box_plot_id_to_desc, x_label, y_label, add_margin_value) {
+    box_plot_data_1, box_plot_data_2, box_plot_id_to_name, box_plot_id_to_desc, x_label, y_label, add_margin_value, 
+    add_border_x, add_border_y) {
     //data: out of d3.csv/tsv 
     //selection: id of a svg (<svg id="plot1"></svg>) placeholder
     //unique_id: a tag to isolate multiple plots
@@ -206,12 +207,12 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
     var height = in_height - margin.top - margin.bottom;
 
     let x = d3.scaleLinear().range([0, width]).nice();
-    var y = d3.scaleLinear().range([height, 0]);
+    var y = d3.scaleLinear().range([height, 0]).nice();
     if (filp_Y) {
         y = d3.scaleLinear().range([0, height]);
     }
 
-
+    console.log('x',x);
     let xAxis = d3.axisBottom(x).ticks(10);
     let yAxis = d3.axisLeft(y).ticks(10)//.tickFormat(d3.format(".1S"));
 
@@ -259,9 +260,11 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
     
     xExtent = add_margin(xExtent, add_margin_value);
     
-    //console.log('parse y');
+    console.log('xExtent',xExtent);
     
     yExtent = add_margin(yExtent, add_margin_value);
+    
+    console.log('yExtent',yExtent);
 
     //console.log('after: xExtent', xExtent, 'yExtent', yExtent);
 
@@ -324,10 +327,10 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
         .attr("class", "dot")
         .attr("r", 4)
         .attr("cx", function (d) {
-            return x(parseFloat(d[x_col]));
+            return x(parseFloat(d[x_col]))+add_border_x;
         })
         .attr("cy", function (d) {
-            return y(parseFloat(d[y_col]));
+            return y(parseFloat(d[y_col]))-add_border_y;
         })
         .attr("opacity", 0.5)
         .style("fill", "#4292c6")
@@ -626,10 +629,10 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
         svg.select(".axis--y").transition(t).call(yAxis);
         scatter.selectAll("circle").transition(t)
             .attr("cx", function (d) {
-                return x(parseFloat(d[x_col]));
+                return x(parseFloat(d[x_col]))+add_border_x;
             })
             .attr("cy", function (d) {
-                return y(parseFloat(d[y_col]));
+                return y(parseFloat(d[y_col]))+add_border_y;
             });
     }
 }

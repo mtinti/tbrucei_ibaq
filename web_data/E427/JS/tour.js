@@ -11,7 +11,24 @@ var tour = new Tour({
       content: "This little tour will show you some of the functionalities of this website"
     },
 
+    {
+      element: "#plot1",
+      title: "iBAQ plot",
+      content: "This plot shows the iBAQ values between BSF and PCF life stages"
+    },
 
+    {
+      element: "#plot2",
+      title: "Rank plot",
+      content: "This plot ranks the iBAQ values between BSF and PCF life stages"
+    },
+
+    {
+      element: "#bar_chart",
+      title: "Bar chart",
+      content: "This plot show the iBAQ values for each experiment in BSF (n=21) and PCF (n=27)"
+    },
+    
 
     {
       element: "#aa1aa",
@@ -47,6 +64,12 @@ var tour = new Tour({
       element: "#table_filter",
       title: "Search Table",
       content: "Search with gene id or description"
+  },
+
+  {
+    element: "#seach_visible",
+    title: "Search From Table",
+    content: "After searching the table all the visible ids can be visualized at once"
   },
 
 
