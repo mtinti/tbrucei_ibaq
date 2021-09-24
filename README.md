@@ -2,7 +2,7 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mtinti/tbrucei_ibaq/main)
 
-zenodo _place_holder_
+[![DOI](https://zenodo.org/badge/386357100.svg)](https://zenodo.org/badge/latestdoi/386357100)
 
 # Protein Abundance Visualisation in T. Brucei
 ## Affiliation
