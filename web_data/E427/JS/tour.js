@@ -33,7 +33,8 @@ var tour = new Tour({
     {
       element: "#aa1aa",
       title: "Gene Highlight",
-      content: "Hovering over the dots to highlight in both plots"
+      content: "Hovering over the dots to highlight in both scatter plots, \
+      in the table and to update the bar plot"
     },
   
     {
@@ -48,7 +49,8 @@ var tour = new Tour({
     element: "#plot2",
     title: "Drag Selection",
     content: "Dragging a selection box will \
-    activate the zoom. <br> The selected genes will appear in the table. \
+    activate the zoom. Clic somewhere in the plot area and without release move the mouse pointer to draw \
+    a rectangle <br> The selected genes inside the rectangle area will appear in the table. \
     <br>Double click to reset the zoom",
   },
 
@@ -57,7 +59,7 @@ var tour = new Tour({
       element: "#table_wrapper",
       title: "Table Highlight",
       content: "Hovering on the table rows will highlight the genes \
-      on the plots"
+      in the scatter plots plots and update the bar plot"
   },
 
   {
