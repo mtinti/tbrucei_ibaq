@@ -91,8 +91,10 @@
 
       <div class="col-md-5">
         <button id="seach_visible", type="submit" class="btn btn-primary" >Seach Visible</button>
+      <div> <br> </div>
         <table id='table' class="display compact"></table>
       </div>
+      
 
       <div class="col-md-2">
         
@@ -401,13 +403,17 @@
       var table = $('#table').DataTable(
         {
           "dom": 'lfrtipB',
-          "buttons": ['csv'],
+          "buttons": [{ extend: 'csv', text: 'Dowwnload table as csv' }],
           "search": {"regex": true},
           "lengthMenu": [[-1, 5, 10, 20, 25, 50, 100 ], 
           [ 'Show all', '5 rows', '10 rows', '20 rows', '25 rows', '50 rows', '100 rows' ]],
           "pageLength": 5,
           "scrollX": true,
           "columnDefs": columnDefs,
+
+          "fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+            return 'Showing '+iStart +" to "+ iEnd +' of '+iTotal+' entries. Scroll right to see more columns.';},
+
           "bSortClasses": false,
           //https://stackoverflow.com/questions/38575079/
           'createdRow': function(nRow, aData, iDataIndex) {
