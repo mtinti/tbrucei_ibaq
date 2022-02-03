@@ -49,7 +49,7 @@ var tour = new Tour({
     element: "#plot2",
     title: "Drag Selection",
     content: "Dragging a selection box will \
-    activate the zoom. Clic somewhere in the plot area and without release move the mouse pointer to draw \
+    activate the zoom. Click somewhere in the plot area and without release move the mouse pointer to draw \
     a rectangle <br> The selected genes inside the rectangle area will appear in the table. \
     <br>Double click to reset the zoom",
   },
@@ -80,6 +80,14 @@ var tour = new Tour({
     title: "Search Multiple IDs",
     content: "You can input several protein IDs at the same time to visualise in the table and plots"
   },
+
+  {
+    element: "#prot_id",
+    title: "Protein bar plot",
+    content: "Hovering over the protein id will highlight the protein \
+    in the scatter plots and in the table"
+  },
+
 
   {
     element: "#button_2",
