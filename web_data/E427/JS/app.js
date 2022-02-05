@@ -408,6 +408,8 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
             });
 
+            d3.select('#bar_chart .c3-title').node().innerHTML = box_plot_id_to_name[d['Gene_acc']];
+
 
 
             tooltip.transition().duration(100).style('opacity', .9);

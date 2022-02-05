@@ -550,7 +550,7 @@
         $('#prot_id').html(box_plot_id_to_name[gene_acc_int]);
         $('#prot_name').html(box_plot_id_to_desc[gene_acc_int]);
 
-
+        d3.select('#bar_chart .c3-title').node().innerHTML = box_plot_id_to_name[gene_acc_int];
         //var label = d3.select('text.c3-title');
         //console.log('label',label);
         //label.html(''); // remove existant text

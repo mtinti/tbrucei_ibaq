@@ -392,6 +392,8 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
             //load box plot
             box_plot_chart.load({
+
+                  
                 columns: [
                 box_plot_data_1[d['Gene_acc']],
                 box_plot_data_2[d['Gene_acc']],
@@ -402,6 +404,7 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
                 //['x1',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
                 //['x2',21,22,23,24,25,26,27,27,28,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47]
               ],
+
     
               xs: {
                 'BSF': 'x1',
@@ -410,6 +413,14 @@ function scaterPlot(data, selection, in_width, in_height, unique_id, x_col, y_co
 
 
             });
+
+            d3.select('#bar_chart .c3-title').node().innerHTML = box_plot_id_to_name[d['Gene_acc']];
+
+            //d3.select("bar_chart_svg").append("text")
+            //.attr("x", 100 )
+            //.attr("y", 50)
+            //.style("text-anchor", "middle")
+            ///.text("Your chart title goes here");
 
 
 
